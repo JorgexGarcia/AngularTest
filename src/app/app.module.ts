@@ -15,6 +15,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import { ProductsComponent } from './pages/products/products.component';
 import {LoadingComponent} from "./shared/loading/loading.component";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { FooterComponent } from './shared/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     NavBarComponent,
     LoginComponent,
     ProductsComponent,
-    LoadingComponent
+    LoadingComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
