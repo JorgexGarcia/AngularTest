@@ -1,0 +1,38 @@
+.create__dialog__actions{
+  display: flex;
+  justify-content: space-between;
+  button{
+    color: white;
+  }
+  button:first-child{
+    background-color: gray;
+  }
+  button:last-child{
+    background-color: green;
+  }
+}
+.create__dialog__middle{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  .dialog__middle__actions{
+    width: 13rem;
+    display: flex;
+    border: 1px solid #cccaca;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 4px;
+    mat-icon{
+      cursor: pointer;
+    }
+  }
+  .dialog__middle__format{
+    height: 1.6rem;
+    width: 13rem;
+    border: 1px solid #cccaca;
+    border-radius: 4px;
+    select:focus-visible{
+      border: none;
+    }
+  }
+}

@@ -1,0 +1,48 @@
+<div>
+  <h1 mat-dialog-title>Nuevo Producto</h1>
+  <div mat-dialog-content>
+    <form class="form-horizontal form-material"
+          [formGroup]="productForm" autocomplete="off">
+      <div class="form-group m-t-40">
+        <div class="col-xs-12">
+          <p>Nombre</p>
+          <input class="form-control my-2" type="text" formControlName="name">
+        </div>
+      </div>
+      <div class="form-group create__dialog__middle mb-1">
+        <div class="col-xs-6">
+          <p>Precio</p>
+          <div class="dialog__middle__actions">
+            <mat-icon (click)="removePrice()">remove</mat-icon>
+            <div>{{productForm.controls['price'].value}}</div>
+            <mat-icon (click)="addPrice()">add</mat-icon>
+          </div>
+        </div>
+        <div class="col-xs-6">
+          <p>Formato</p>
+          <select class="dialog__middle__format" formControlName="format" >
+            <option *ngFor="let item of productFormats" [ngValue]="item">{{item}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-xs-12">
+          <p>Marca</p>
+          <input class="form-control my-2" type="text" formControlName="brand">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col text-danger m-2">
+          <p *ngIf="fieldNoValid('name')">El nombre es obligatorio</p>
+          <p *ngIf="fieldNoValid('price')">El precio es obligatorio</p>
+          <p *ngIf="fieldNoValid('format')">El formato es obligatorio</p>
+          <p *ngIf="fieldNoValid('brand')">La marca es obligatoria</p>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div mat-dialog-actions class="create__dialog__actions">
+    <button mat-button mat-dialog-close>Cancelar</button>
+    <button mat-button (click)="createProduct()">Guardar</button>
+  </div>
+</div>

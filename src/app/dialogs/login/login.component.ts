@@ -12,7 +12,7 @@ import {UserService} from "../../services/user.service";
 export class LoginComponent implements OnInit {
 
   public loginForm = this.formBuilder.group({
-    name: ["", [Validators.required]],
+    name: ["", [Validators.required, Validators.min(6)]],
     password: ["", [Validators.required,
       Validators.pattern("[a-zA-Z0-9.-_]{6}")]]
   });

@@ -39,8 +39,16 @@ export class ProductService {
     this._checkProductsCount = new BehaviorSubject<number>(0);
   }
 
-  createProduct(formData: any): Observable<any> {
-    return this.http.post<any>(`${this._baseUrl}`, formData);
+  createProduct(formData: any): void{
+    if(this._productsList.getValue().length > 0){
+      let lastId: number = Number(this._productsList.getValue()[this._productsList.getValue().length - 1].id);
+      formData.id = (lastId + 1).toString();
+    }else{
+      formData.id = "1";
+    }
+    let newList: Product[] = this._productsList.getValue();
+    newList.push(formData);
+    this.setProductsList(newList);
   }
 
   getProduct(): void {
