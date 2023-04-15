@@ -1,15 +1,55 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { MatDialog } from "@angular/material/dialog";
+import { Subscription } from "rxjs";
+
+import { LoginComponent } from "../../dialogs/login/login.component";
+
+import { UserService } from "../../services/user.service";
+
+import { User } from "../../models/User";
 
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
-  styleUrls: ['./nav-bar.component.css']
+  styleUrls: ['./nav-bar.component.scss']
 })
-export class NavBarComponent implements OnInit {
+export class NavBarComponent implements OnInit, OnDestroy{
 
-  constructor() { }
+  public name: string | null;
+  private _subscription: Subscription | undefined;
 
-  ngOnInit(): void {
+  constructor(public userService: UserService, private dialogRef: MatDialog) {
+    this.name = null;
   }
 
+  ngOnInit(): void {
+    this._getUser();
+  }
+
+  login() {
+    this.dialogRef.open(LoginComponent, {
+      width:'300px'
+    });
+  }
+
+  logout() {
+    this.name = null;
+    this.userService.logout();
+  }
+
+  ngOnDestroy(): void {
+    if (this._subscription) {
+      this._subscription.unsubscribe();
+    }
+  }
+
+  private _getUser() {
+    this._subscription = this.userService.getUserActive().subscribe(
+      (value:User | null) => {
+        if(value){
+          this.name = value.name;
+        }
+      }
+    );
+  }
 }

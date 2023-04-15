@@ -4,8 +4,13 @@
       <img alt="Logo" src="../../../assets/images/logo_mercadona_240_240.webp" height="40" width="40"/>
       <h2 class="container__logo__text">Mercadona</h2>
     </div>
-    <div>
-      <button class="container__login__button">Iniciar sesión</button>
+    <div *ngIf="!name">
+      <button class="container__login__button" (click)="login()">Iniciar sesión</button>
+    </div>
+    <div *ngIf="name">
+      <p class="container__login__text">{{name}}
+        <mat-icon (click)="logout()">exit_to_app</mat-icon>
+      </p>
     </div>
   </div>
 </nav>

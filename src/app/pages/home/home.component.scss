@@ -1,0 +1,33 @@
+.home__title__text {
+  font-weight: 400;
+  font-size: 36px;
+}
+.home__body__card {
+  max-width: 400px;
+  margin: 2rem auto auto;
+  background-color: #eeeff6;
+  border: none;
+  border-radius: 0.1rem;
+  .body__card__title {
+    margin: 0;
+  }
+  .body__card__footer {
+    display: flex;
+    justify-content: center;
+    .card__footer__button {
+      background-color: #0a840a;
+      width: 8rem;
+      margin: 1rem 0;
+      color: white;
+      height: 2.5rem;
+      border: none;
+      border-radius: 0.1rem;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      .footer__button__icon{
+        height: 1.5rem;
+      }
+    }
+  }
+}
