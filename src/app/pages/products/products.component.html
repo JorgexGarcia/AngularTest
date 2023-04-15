@@ -18,8 +18,10 @@
           <td>{{item?.price}} €</td>
           <td>{{item?.format}}</td>
           <td>{{item?.brand}}</td>
-          <td>
-            <button type="button" class="btn btn-danger m-1" (click)="deleteProduct(item.id)">Eliminar</button>
+          <td class="table__acctions">
+            <a (click)="deleteProduct(item.id)">
+              <mat-icon color="warn">delete_outline</mat-icon>
+            </a>
           </td>
         </tr>
       </tbody>

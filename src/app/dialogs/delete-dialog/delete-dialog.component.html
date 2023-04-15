@@ -1,0 +1,10 @@
+<div class="delete__dialog">
+  <h5 mat-dialog-title>Confirmación</h5>
+  <div mat-dialog-content>
+    <h3>¿Desea eliminar el elemento seleccionado?</h3>
+  </div>
+  <div mat-dialog-actions class="delete__dialog__actions">
+    <button mat-button mat-dialog-close>Cancelar</button>
+    <button mat-button [mat-dialog-close]="true" class="delete__dialog--confirm">Eliminar</button>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+.delete__dialog{
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  .delete__dialog__actions{
+    .delete__dialog--confirm{
+      background-color: red;
+      color: white;
+    }
+  }
+}

@@ -16,6 +16,8 @@ import { ProductsComponent } from './pages/products/products.component';
 import {LoadingComponent} from "./shared/loading/loading.component";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { FooterComponent } from './shared/footer/footer.component';
+import {MatButtonModule} from "@angular/material/button";
+import {DeleteDialogComponent} from "./dialogs/delete-dialog/delete-dialog.component";
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { FooterComponent } from './shared/footer/footer.component';
     LoginComponent,
     ProductsComponent,
     LoadingComponent,
-    FooterComponent
+    FooterComponent,
+    DeleteDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +40,7 @@ import { FooterComponent } from './shared/footer/footer.component';
     HttpClientModule,
     ReactiveFormsModule,
     MatProgressSpinnerModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

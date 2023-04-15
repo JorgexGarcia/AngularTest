@@ -11,6 +11,14 @@
       left: 0;
       background-color: lightgrey;
     }
+    tbody td:last-child{
+      display: flex;
+      flex-direction: row-reverse;
+      padding-right: 0.5rem;
+      a {
+        cursor: pointer;
+      }
+    }
     th{
       border: 1px solid #b9babb;
       vertical-align: middle;

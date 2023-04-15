@@ -9,20 +9,3 @@ hr { border: 2px solid darkgreen; }
 .mat-progress-spinner circle, .mat-spinner circle {
   stroke: #3fb53f;
 }
-
-/* Button */
-.button {
-  background-color: #0a840a;
-  width: 8rem;
-  margin: 1rem 0;
-  color: white;
-  height: 2.5rem;
-  border: none;
-  border-radius: 0.1rem;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  .footer__button__icon{
-    height: 1.5rem;
-  }
-}

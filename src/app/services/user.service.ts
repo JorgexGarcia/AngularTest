@@ -10,7 +10,7 @@ import {BehaviorSubject, Observable} from "rxjs";
 })
 export class UserService {
 
-  private _userActive = new BehaviorSubject<User | null>(null);
+  private _userActive: BehaviorSubject<User | null> = new BehaviorSubject<User | null>(null);
 
   public getUserActive(): Observable<User | null> {
     return this._userActive.asObservable();
