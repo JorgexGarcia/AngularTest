@@ -1,8 +1,9 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {LoginComponent} from "../../dialogs/login/login.component";
-import {MatDialog} from "@angular/material/dialog";
-import {ProductService} from "../../services/product.service";
-import {Subscription} from "rxjs";
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { MatDialog } from "@angular/material/dialog";
+import { Subscription } from "rxjs";
+
+import { LoginComponent } from "../../dialogs/login/login.component";
+import { ProductService } from "../../services/product.service";
 
 @Component({
   selector: 'app-home',
@@ -12,6 +13,7 @@ import {Subscription} from "rxjs";
 export class HomeComponent implements OnInit, OnDestroy {
 
   public productsCount: number;
+
   private _serviceProduct: Subscription | undefined;
 
   constructor(private dialogRef: MatDialog, private productService: ProductService) {

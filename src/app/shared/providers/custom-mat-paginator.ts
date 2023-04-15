@@ -13,7 +13,6 @@ export class MatPaginatorIntlCro extends MatPaginatorIntl {
     if (length === 0 || pageSize === 0) {
       return '0 od ' + length;
     }
-
     length = Math.max(length, 0);
     const startIndex = page * pageSize;
     const endIndex = startIndex < length ?

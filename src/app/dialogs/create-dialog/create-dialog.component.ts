@@ -1,23 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import {MatDialogRef} from "@angular/material/dialog";
-import {Router} from "@angular/router";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {UserService} from "../../services/user.service";
-import {ProductService} from "../../services/product.service";
-import * as events from "events";
+import { Component } from '@angular/core';
+import { MatDialogRef } from "@angular/material/dialog";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+
+import { ProductService } from "../../services/product.service";
 
 @Component({
   selector: 'app-create-dialog',
   templateUrl: './create-dialog.component.html',
   styleUrls: ['./create-dialog.component.scss']
 })
-export class CreateDialogComponent implements OnInit {
+export class CreateDialogComponent {
 
-  public productForm: FormGroup ;
+  public productForm: FormGroup;
   public productFormats: string[];
   public optionSelected: string;
 
-  private _formSubmitted = false;
+  private _formSubmitted: boolean = false;
 
   constructor(public dialogRef: MatDialogRef<CreateDialogComponent>,
               private formBuilder: FormBuilder, private productService: ProductService) {
@@ -30,9 +28,6 @@ export class CreateDialogComponent implements OnInit {
     });
     this.productFormats = ['Digital', 'Physical'];
     this.optionSelected = '';
-  }
-
-  ngOnInit(): void {
   }
 
   createProduct() {

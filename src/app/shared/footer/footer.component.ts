@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {LoginComponent} from "../../dialogs/login/login.component";
-import {MatDialog} from "@angular/material/dialog";
-import {CreateDialogComponent} from "../../dialogs/create-dialog/create-dialog.component";
+import { MatDialog } from "@angular/material/dialog";
+
+import { CreateDialogComponent } from "../../dialogs/create-dialog/create-dialog.component";
 
 @Component({
   selector: 'app-footer',
@@ -10,14 +10,19 @@ import {CreateDialogComponent} from "../../dialogs/create-dialog/create-dialog.c
 })
 export class FooterComponent implements OnInit {
 
-  constructor(private dialogRef: MatDialog) { }
+  public showFooter: boolean;
 
-  ngOnInit(): void {
+  constructor(private dialogRef: MatDialog) {
+    this.showFooter = false;
   }
 
   createProduct() {
     this.dialogRef.open(CreateDialogComponent, {
       width:'500px'
     });
+  }
+
+  ngOnInit(): void {
+    this.showFooter = !window.location.href.includes('home');
   }
 }

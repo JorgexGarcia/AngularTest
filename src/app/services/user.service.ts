@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Router } from "@angular/router";
+import { BehaviorSubject, Observable } from "rxjs";
 
 import { User } from "../models/User";
-import {BehaviorSubject, Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -11,20 +11,17 @@ import {BehaviorSubject, Observable} from "rxjs";
 export class UserService {
 
   private _userActive: BehaviorSubject<User | null> = new BehaviorSubject<User | null>(null);
+  private setUserActive(value: User | null): void {
+    this._userActive.next(value);
+  }
 
   public getUserActive(): Observable<User | null> {
     return this._userActive.asObservable();
   }
 
-  private setUserActive(value: User | null): void {
-    this._userActive.next(value);
-  }
+  constructor(private http: HttpClient, private router: Router) { }
 
-  constructor(private http: HttpClient,
-              private router: Router) {
-  }
-
-  public logout() {
+  logout() {
     this.setUserActive(null);
     this.router.navigateByUrl('/home');
   }
@@ -34,15 +31,5 @@ export class UserService {
       this.setUserActive(formData);
       this.router.navigateByUrl('/product')
     }
-    /*
-    return this.http.post<any>(``, formData)
-      .pipe(
-        tap((resp:any) => {
-          if(resp.go){
-            localStorage.setItem('token', resp.token)
-          }
-        })
-      );
-     */
   }
 }

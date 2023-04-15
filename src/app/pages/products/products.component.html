@@ -1,7 +1,6 @@
 <app-loading [waiting]="loading"></app-loading>
-
-<div *ngIf="!loading">
-  <div class="table-wrapper">
+<section *ngIf="!loading" class="products__content">
+  <div class="products__table">
     <table class="table table-striped">
       <thead>
         <tr>
@@ -28,13 +27,11 @@
     </table>
   </div>
   <div>
-    <mat-paginator #paginator
-                   [length]="this.products.length"
-                   class="demo-paginator"
+    <mat-paginator [length]="this.products.length"
                    (page)="getPagesMovies($event)"
                    [showFirstLastButtons]="true"
-                   [pageSizeOptions]="pageSizeOptions"
-                   aria-label="Select page">
+                   [pageSizeOptions]="pageSizeOptions">
     </mat-paginator>
   </div>
-</div>
+</section>
+<app-footer class="products__footer"></app-footer>

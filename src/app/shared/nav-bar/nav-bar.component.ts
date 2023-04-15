@@ -3,9 +3,7 @@ import { MatDialog } from "@angular/material/dialog";
 import { Subscription } from "rxjs";
 
 import { LoginComponent } from "../../dialogs/login/login.component";
-
 import { UserService } from "../../services/user.service";
-
 import { User } from "../../models/User";
 
 @Component({
@@ -44,6 +42,9 @@ export class NavBarComponent implements OnInit, OnDestroy{
   }
 
   private _getUser() {
+    if (this._subscription) {
+      this._subscription.unsubscribe();
+    }
     this._subscription = this.userService.getUserActive().subscribe(
       (value:User | null) => {
         if(value){

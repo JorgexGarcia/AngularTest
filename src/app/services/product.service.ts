@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {BehaviorSubject, map, Observable} from "rxjs";
-import {environment} from "../../environments/environment";
-import {Product} from "../models/Product";
-import {User} from "../models/User";
+import { HttpClient } from "@angular/common/http";
+import { BehaviorSubject, map, Observable } from "rxjs";
+
+import { environment } from "../../environments/environment";
+import { Product } from "../models/Product";
 
 @Injectable({
   providedIn: 'root'
@@ -13,22 +13,19 @@ export class ProductService {
   private _baseUrl: string;
   private _productsList: BehaviorSubject<Product[]>
   private _checkProductsCount: BehaviorSubject<number>;
-
-  public getCheckProductsCount(): Observable<number> {
-    return this._checkProductsCount.asObservable();
+  private setProductsList(value: Product[]): void {
+    this._productsList.next(value);
+    this.setCheckProductsCount(value.filter((item: Product) => !item.revised).length);
   }
-
   private setCheckProductsCount(value: number): void {
     this._checkProductsCount.next(value);
   }
 
+  public getCheckProductsCount(): Observable<number> {
+    return this._checkProductsCount.asObservable();
+  }
   public getProductsList(): Observable<Product[]> {
     return this._productsList.asObservable();
-  }
-
-  private setProductsList(value: Product[]): void {
-    this._productsList.next(value);
-    this.setCheckProductsCount(value.filter((item: Product) => !item.revised).length);
   }
 
   constructor(private http: HttpClient) {

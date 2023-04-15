@@ -1,28 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
-import {FormBuilder, Validators} from "@angular/forms";
-import {Router} from "@angular/router";
-import {UserService} from "../../services/user.service";
+import { MatDialogRef } from "@angular/material/dialog";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
+
+import { UserService } from "../../services/user.service";
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
-  public loginForm = this.formBuilder.group({
-    name: ["", [Validators.required, Validators.min(6)]],
-    password: ["", [Validators.required,
-      Validators.pattern("[a-zA-Z0-9.-_]{6}")]]
-  });
+  public loginForm: FormGroup;
 
-  private _formSubmitted = false;
+  private _formSubmitted: boolean = false;
 
   constructor(public dialogRef: MatDialogRef<LoginComponent>, private router: Router,
-              private formBuilder: FormBuilder, private userService: UserService) { }
-
-  ngOnInit(): void {
+              private formBuilder: FormBuilder, private userService: UserService) {
+    this.loginForm = this.formBuilder.group({
+      name: ["", [Validators.required, Validators.min(6)]],
+      password: ["", [Validators.required,
+        Validators.pattern("[a-zA-Z0-9.-_]{6}")]]
+    });
+    this._formSubmitted = false;
   }
 
   login() {
