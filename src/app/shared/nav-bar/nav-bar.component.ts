@@ -5,6 +5,7 @@ import { Subscription } from "rxjs";
 import { LoginComponent } from "../../dialogs/login/login.component";
 import { UserService } from "../../services/user.service";
 import { User } from "../../models/User";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-nav-bar',
@@ -16,7 +17,7 @@ export class NavBarComponent implements OnInit, OnDestroy{
   public name: string | null;
   private _subscription: Subscription | undefined;
 
-  constructor(public userService: UserService, private dialogRef: MatDialog) {
+  constructor(public userService: UserService, private dialogRef: MatDialog, private router: Router) {
     this.name = null;
   }
 
@@ -49,6 +50,8 @@ export class NavBarComponent implements OnInit, OnDestroy{
       (value:User | null) => {
         if(value){
           this.name = value.name;
+        }else{
+          this.router.navigateByUrl('/home');
         }
       }
     );

@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  productsPath: "../assets/data/products.json"
+  productsPath: "../assets/data/products.json",
+  userPath: "../assets/data/user.json"
 };
 
 /*

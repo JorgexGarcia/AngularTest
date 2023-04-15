@@ -19,6 +19,7 @@
         <div class="col text-danger m-2">
           <p *ngIf="fieldNoValid('name')">El nombre es obligatorio</p>
           <p *ngIf="fieldNoValid('password')">La contraseña es obligatoria</p>
+          <p *ngIf="loginError">Usuario incorrecto</p>
         </div>
       </div>
     </form>
