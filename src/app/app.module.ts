@@ -21,6 +21,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { DeleteDialogComponent } from "./dialogs/delete-dialog/delete-dialog.component";
 import { CreateDialogComponent } from './dialogs/create-dialog/create-dialog.component';
 import { MatPaginatorIntlCro } from "./shared/providers/custom-mat-paginator";
+import { EuroPipe } from './pipes/euro.pipe';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { MatPaginatorIntlCro } from "./shared/providers/custom-mat-paginator";
     LoadingComponent,
     FooterComponent,
     DeleteDialogComponent,
-    CreateDialogComponent
+    CreateDialogComponent,
+    EuroPipe
   ],
   imports: [
     BrowserModule,
