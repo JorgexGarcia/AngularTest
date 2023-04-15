@@ -19,6 +19,8 @@ import { FooterComponent } from './shared/footer/footer.component';
 import {MatButtonModule} from "@angular/material/button";
 import {DeleteDialogComponent} from "./dialogs/delete-dialog/delete-dialog.component";
 import { CreateDialogComponent } from './dialogs/create-dialog/create-dialog.component';
+import {MatPaginatorIntl, MatPaginatorModule} from "@angular/material/paginator";
+import { MatPaginatorIntlCro} from "./shared/providers/custom-mat-paginator";
 
 @NgModule({
   declarations: [
@@ -44,8 +46,9 @@ import { CreateDialogComponent } from './dialogs/create-dialog/create-dialog.com
     MatProgressSpinnerModule,
     MatButtonModule,
     FormsModule,
+    MatPaginatorModule,
   ],
-  providers: [],
+  providers: [{ provide: MatPaginatorIntl, useClass: MatPaginatorIntlCro}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

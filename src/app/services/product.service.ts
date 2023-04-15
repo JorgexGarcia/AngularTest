@@ -27,10 +27,8 @@ export class ProductService {
   }
 
   private setProductsList(value: Product[]): void {
-    console.log("a")
     this._productsList.next(value);
     this.setCheckProductsCount(value.filter((item: Product) => !item.revised).length);
-    console.log(this._checkProductsCount.getValue())
   }
 
   constructor(private http: HttpClient) {

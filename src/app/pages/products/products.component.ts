@@ -16,13 +16,17 @@ export class ProductsComponent implements OnInit, OnDestroy{
 
   public loading: boolean;
   public products: Product[];
+  public productsToShow: Product[];
   private _total: number = 0;
-  private _page: number = 0;
   private _serviceProduct: Subscription | undefined;
 
+  public pageSizeOptions = [5, 10, 20];
+
+  @ViewChild(MatPaginator) paginator?: MatPaginator;
   constructor(private productService: ProductService, private dialogRef: MatDialog) {
     this.loading = false;
     this.products = [];
+    this.productsToShow = [];
   }
 
   ngOnInit(): void {
@@ -40,13 +44,12 @@ export class ProductsComponent implements OnInit, OnDestroy{
         this._total = resp.total;
         if(resp.length !== 0){
           this.products = resp
+          this.productsToShow = [...this.products.slice(0, 5)];
+          console.log(this.products);
+          console.log(this.productsToShow);
         }
         this.loading = false;
       });
-  }
-
-  createProduct() {
-
   }
 
   deleteProduct(id: string) {
@@ -65,5 +68,11 @@ export class ProductsComponent implements OnInit, OnDestroy{
     if (this._serviceProduct) {
       this._serviceProduct.unsubscribe();
     }
+  }
+
+  getPagesMovies(event: any) {
+    let start = (event.pageIndex) * event.pageSize;
+    let end =  (start + event.pageSize);
+    this.productsToShow = [...this.products.slice(start, end)];
   }
 }

@@ -9,3 +9,13 @@ hr { border: 2px solid darkgreen; }
 .mat-progress-spinner circle, .mat-spinner circle {
   stroke: #3fb53f;
 }
+.mat-paginator-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between !important;
+  padding: 0 8px;
+  flex-wrap: wrap-reverse;
+  width: 100%;
+  background: #dcdce0;
+  flex-direction: row;
+}
