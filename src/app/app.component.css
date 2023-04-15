@@ -1,0 +1,15 @@
+:host {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.header__section {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.body__section {
+  padding: 1rem 5rem;
+  position: relative;
+  top: 8rem;
+}
