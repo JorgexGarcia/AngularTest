@@ -9,7 +9,7 @@
          (cdkDropListDropped)="drop($event)">
       <div cdkDrag class="settings__droplist" [cdkDragDisabled]="n[2]"
            *ngFor="let n of columnsName; let i = index">
-        <div class="settings__droplist__group">
+        <div class="settings__droplist__group" [ngClass]="{'disabled': n[2]}">
           <p>{{i + 1}}</p>
           <p>{{n[0]}}</p>
           <div>

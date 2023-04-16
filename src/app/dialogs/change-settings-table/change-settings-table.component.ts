@@ -1,6 +1,6 @@
-import {Component, Inject} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
-import {CdkDragDrop, moveItemInArray} from "@angular/cdk/drag-drop";
+import { Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
+import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
 
 @Component({
   selector: 'app-change-settings-table',
@@ -12,11 +12,11 @@ export class ChangeSettingsTableComponent {
   constructor(public dialogRef: MatDialogRef<ChangeSettingsTableComponent>,
               @Inject(MAT_DIALOG_DATA) public columnsName: any[][]) { }
 
-  drop($event: CdkDragDrop<any[][]>){
+  drop(event: CdkDragDrop<any[][]>){
     moveItemInArray(
-      $event.container.data,
-      $event.previousIndex,
-      $event.currentIndex
+      event.container.data,
+      event.previousIndex,
+      event.currentIndex
     );
   }
 

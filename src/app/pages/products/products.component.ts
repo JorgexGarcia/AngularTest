@@ -1,12 +1,12 @@
-import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {MatDialog} from "@angular/material/dialog";
-import {MatPaginator} from "@angular/material/paginator";
-import {Subscription} from "rxjs";
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from "@angular/material/dialog";
+import { MatPaginator } from "@angular/material/paginator";
+import { Subscription } from "rxjs";
 
-import {Product} from "../../models/Product";
-import {ProductService} from "../../services/product.service";
-import {DeleteDialogComponent} from "../../dialogs/delete-dialog/delete-dialog.component";
-import {ChangeSettingsTableComponent} from "../../dialogs/change-settings-table/change-settings-table.component";
+import { Product } from "../../models/Product";
+import { ProductService } from "../../services/product.service";
+import { DeleteDialogComponent } from "../../dialogs/delete-dialog/delete-dialog.component";
+import { ChangeSettingsTableComponent } from "../../dialogs/change-settings-table/change-settings-table.component";
 
 @Component({
   selector: 'app-products',

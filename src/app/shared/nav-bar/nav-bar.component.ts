@@ -1,11 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from "@angular/material/dialog";
+import { Router } from "@angular/router";
 import { Subscription } from "rxjs";
 
 import { LoginComponent } from "../../dialogs/login/login.component";
 import { UserService } from "../../services/user.service";
 import { User } from "../../models/User";
-import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-nav-bar',

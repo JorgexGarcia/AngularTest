@@ -2,9 +2,9 @@ import {Component, OnDestroy} from '@angular/core';
 import { MatDialogRef } from "@angular/material/dialog";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
+import { Subscription } from "rxjs";
 
 import { UserService } from "../../services/user.service";
-import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-login',
