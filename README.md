@@ -1,6 +1,7 @@
 # Angular
 
-This project was generated with Angular CLI version 13.3.11. It consists of a simulation of an application to manage products in a shop.
+This project was generated with Angular CLI version 13.3.11. 
+It consists of a simulation of an application to manage products in a shop.
 
 ## Development server
 
