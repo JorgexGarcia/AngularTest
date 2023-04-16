@@ -1,0 +1,31 @@
+<div class="settings__dialog">
+  <h5 mat-dialog-title>Reordenar, fijar u ocultar las columnas de la tabla</h5>
+  <div mat-dialog-content>
+    <h3>Configurar columnas</h3>
+  </div>
+  <div>
+    <div cdkDropList
+         [cdkDropListData]="columnsName"
+         (cdkDropListDropped)="drop($event)">
+      <div cdkDrag class="settings__droplist" [cdkDragDisabled]="n[2]"
+           *ngFor="let n of columnsName; let i = index">
+        <div class="settings__droplist__group">
+          <p>{{i + 1}}</p>
+          <p>{{n[0]}}</p>
+          <div>
+            <mat-icon *ngIf="!n[2]" (click)="changeFixed(i)">swap_vert</mat-icon>
+            <mat-icon *ngIf="n[2]" (click)="changeFixed(i)">mobiledata_off</mat-icon>
+          </div>
+          <div>
+            <mat-icon *ngIf="n[3]" (click)="changeVisibility(i)">visibility</mat-icon>
+            <mat-icon *ngIf="!n[3]" (click)="changeVisibility(i)">visibility_off</mat-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div mat-dialog-actions class="settings__dialog__actions">
+    <button mat-button mat-dialog-close>Cancelar</button>
+    <button mat-button (click)="closeDialog()">Aplicar</button>
+  </div>
+</div>

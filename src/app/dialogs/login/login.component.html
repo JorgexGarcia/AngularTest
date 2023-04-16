@@ -1,5 +1,7 @@
 <div>
   <h1 mat-dialog-title>Iniciar sesión</h1>
+  <p>Name : Jorge</p>
+  <p>Password : 123456</p>
   <div mat-dialog-content>
     <form class="form-horizontal form-material"
           [formGroup]="loginForm" autocomplete="off">
@@ -25,7 +27,7 @@
     </form>
   </div>
   <div mat-dialog-actions class="login__dialog__actions">
-    <button mat-button mat-dialog-close>Cancelar</button>
+    <button mat-button mat-dialog-close cdkFocusInitial>Cancelar</button>
     <button mat-button (click)="login()">Entrar</button>
   </div>
 </div>

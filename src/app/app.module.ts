@@ -9,6 +9,7 @@ import { MatDialogModule } from "@angular/material/dialog";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { MatButtonModule } from "@angular/material/button";
 import { MatPaginatorIntl, MatPaginatorModule } from "@angular/material/paginator";
+import { DragDropModule } from "@angular/cdk/drag-drop";
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -22,6 +23,7 @@ import { DeleteDialogComponent } from "./dialogs/delete-dialog/delete-dialog.com
 import { CreateDialogComponent } from './dialogs/create-dialog/create-dialog.component';
 import { MatPaginatorIntlCro } from "./shared/providers/custom-mat-paginator";
 import { EuroPipe } from './pipes/euro.pipe';
+import { ChangeSettingsTableComponent } from './dialogs/change-settings-table/change-settings-table.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { EuroPipe } from './pipes/euro.pipe';
     FooterComponent,
     DeleteDialogComponent,
     CreateDialogComponent,
-    EuroPipe
+    EuroPipe,
+    ChangeSettingsTableComponent
   ],
   imports: [
     BrowserModule,
@@ -49,6 +52,7 @@ import { EuroPipe } from './pipes/euro.pipe';
     MatButtonModule,
     FormsModule,
     MatPaginatorModule,
+    DragDropModule,
   ],
   providers: [{ provide: MatPaginatorIntl, useClass: MatPaginatorIntlCro}],
   bootstrap: [AppComponent]

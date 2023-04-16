@@ -1,24 +1,25 @@
 <app-loading [waiting]="loading"></app-loading>
 <section *ngIf="!loading" class="products__content">
+  <div class="products__columns--settings">
+    <mat-icon (click)="changeSettingsTable()">settings</mat-icon>
+  </div>
   <div class="products__table">
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>Nombre</th>
-          <th>Precio</th>
-          <th>Formato</th>
-          <th>Marca</th>
+          <th *ngFor="let n of columnsToShow">{{n[0]}}</th>
           <th>Acciones</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let item of productsToShow">
-          <td>{{item.name}}</td>
-          <td>{{item.price | euro}}</td>
-          <td>{{item.format}}</td>
-          <td>{{item.brand}}</td>
+          <td *ngFor="let name of columnsToShow">
+            <div *ngFor="let attribute of item">
+              <span *ngIf="attribute[0] === name[1]">{{attribute[1]}}</span>
+            </div>
+          </td>
           <td class="table__acctions">
-            <a (click)="deleteProduct(item.id)">
+            <a (click)="deleteProduct(item)">
               <mat-icon color="warn">delete_outline</mat-icon>
             </a>
           </td>
@@ -27,7 +28,8 @@
     </table>
   </div>
   <div>
-    <mat-paginator [length]="this.products.length"
+    <mat-paginator #paginator
+                   [length]="this.products.length"
                    (page)="getPagesMovies($event)"
                    [showFirstLastButtons]="true"
                    [pageSizeOptions]="pageSizeOptions">

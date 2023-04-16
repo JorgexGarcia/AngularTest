@@ -1,0 +1,37 @@
+.settings__dialog{
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  .settings__droplist{
+    width: 100%;
+    border: 1px solid lightgrey;
+    margin: 1rem;
+    .settings__droplist__group{
+      display: flex;
+      justify-content: space-between;
+      cursor: pointer;
+      p{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      p , div {
+        margin: 1rem;
+      }
+      p:first-child{
+        background-color: lightgrey;
+        width: 2rem;
+      }
+    }
+  }
+  .settings__dialog__actions{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    button:last-child{
+      background-color: green;
+      color: white;
+    }
+  }
+}
+
